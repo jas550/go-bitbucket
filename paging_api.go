@@ -95,6 +95,14 @@ func (a *PagingApiService) BranchrestrictionsPageGet(ctx context.Context, pageUR
 	return successPayload, resp, err
 }
 
+func (a *PagingApiService) BranchesPageGet(ctx context.Context, pageURL string) (PaginatedBranches, *http.Response, error) {
+	var successPayload PaginatedBranches
+
+	resp, err := a.pageGet(ctx, pageURL, &successPayload)
+
+	return successPayload, resp, err
+}
+
 // CommitstatusesPageGet is used to get the next or previous page of PaginatedCommitstatuses
 func (a *PagingApiService) CommitstatusesPageGet(ctx context.Context, pageURL string) (PaginatedCommitstatuses, *http.Response, error) {
 	var successPayload PaginatedCommitstatuses
